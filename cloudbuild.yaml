@@ -11,7 +11,7 @@ steps:
   args:
   - 'run'
   - 'deploy'
-  - 'commingsoon'
+  - 'commingsoon-1'
   - '--image'
   - 'us-central1-docker.pkg.dev/causal-flame-397118/cloud-run-source-deploy/commingsoon/commingsoon:$COMMIT_SHA'
   - '--region'
