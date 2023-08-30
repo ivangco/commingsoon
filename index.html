@@ -36,14 +36,14 @@
                     <div class="col-md-6 col-sm-12">
                         <div class="sub__container">
                             <div class="container__lottie">
-                                <lottie-player style="margin-left: -2.5rem; margin-top: -4.5rem"
+                                <div id="lottie-animation"></div>
+                                <!-- <lottie-player style="margin-left: -2.5rem; margin-top: -4.5rem"
                                     src="assetspront/images/icons/animation_llwr8oae.json" background="transparent"
-                                    speed="1" loop autoplay></lottie-player>
+                                    speed="1" loop autoplay></lottie-player> -->
                             </div>
                             <div class="container__texto">
                                 <h1 class="font-size-50" style="color: #305187;">MUY PRONTO</h1>
                                 <h2 class="opacity-30">Algo impresionante esta llegando</h2>
-                                <h2 class="opacity-30">cambio 2</h2>
                             </div>
 
                         </div>
@@ -68,7 +68,7 @@
     </div>
 
     <script src="assetspront/js/jquery-2.2.1.min.js"></script>
-    <script src="http://maps.google.com/maps/api/js"></script>
+    <!-- <script src="http://maps.google.com/maps/api/js"></script> -->
     <script src="assetspront/bootstrap/js/bootstrap.min.js"></script>
     <script src="assetspront/js/jquery.validate.min.js"></script>
     <script src="assetspront/js/jquery.magnific-popup.min.js"></script>
@@ -76,42 +76,95 @@
     <script src="assetspront/js/jquery.countdown.min.js"></script>
     <script src="assetspront/js/sketch.min.js"></script>
     <script src="assetspront/js/custom.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.2/lottie.min.js"></script>
+    <!-- <script>
+        // Cargar la animación en el div con ID "lottie-animation"
+        var animationContainer = document.getElementById('lottie-animation');
+        var anim = lottie.loadAnimation({
+            container: animationContainer,
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'ruta/a/tu/animacion.json' // Reemplaza con la ruta de tu archivo JSON de animación
+        });
+    </script> -->
     <script>
 
+        function cargarAnimacion() {
+            var animationContainer = document.getElementById('lottie-animation');
+            var imagesjson = ["assetspront/images/icons/65356-maintenance-web.json",
+                "assetspront/images/icons/animation_llwrbuyn.json",
+                "assetspront/images/icons/animation_llx6dm1l.json",
+                "assetspront/images/icons/animation_llvb3irv.json",
+                "assetspront/images/icons/animation_llx5y9bh.json",
+                "assetspront/images/icons/animation_llx6dus1.json",
+                "assetspront/images/icons/animation_llwr2xye.json",
+                "assetspront/images/icons/animation_llx62w9f.json",
+                "assetspront/images/icons/animation_llx76unk.json",
+                "assetspront/images/icons/animation_llwr53q5.json",
+                "assetspront/images/icons/animation_llx68l3s.json",
+                "assetspront/images/icons/animation_llx76zsb.json",
+                "assetspront/images/icons/animation_llwr634d.json",
+                "assetspront/images/icons/animation_llx6agk2.json",
+                "assetspront/images/icons/animation_llx77gfy.json",
+                "assetspront/images/icons/animation_llwr6tqg.json",
+                "assetspront/images/icons/animation_llx6b2vz.json",
+                "assetspront/images/icons/animation_llx77o4q.json",
+                "assetspront/images/icons/animation_llwr7sl4.json",
+                "assetspront/images/icons/animation_llx6bobe.json",
+                "assetspront/images/icons/animation_llx77sp2.json",
+                "assetspront/images/icons/animation_llwr8oae.json",
+                "assetspront/images/icons/animation_llx6c0t3.json"];
+
+            // Paso 1: Generar un índice aleatorio
+            var randomIndex = Math.floor(Math.random() * imagesjson.length);
+
+            // Paso 2: Obtener la ruta de la imagen aleatoria
+            var randomImageSrc = imagesjson[randomIndex];
+
+            // Paso 3: Cambiar el valor del atributo src   
+            //lottiePlayer.setAttribute('src', randomImageSrc);
+            //console.log(randomImageSrc);
+            var anim = lottie;
+            if (anim !== null) {
+                anim.destroy(); // Destruir la instancia de la animación
+                anim = null;
+                animationContainer.innerHTML = ''; // Limpiar el contenedor
+            };
+            anim = lottie.loadAnimation({
+                container: animationContainer,
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                path: randomImageSrc // Reemplaza con la ruta de tu archivo JSON de animación
+            });
+        }
+        cargarAnimacion();
         //  Map
 
-        var latitude = 34.038405;
-        var longitude = -117.946944;
-        var markerImage = "assetspront/img/map-marker.png";
-        var mapTheme = "light";
-        var mapElement = "map";
-
-        $(".modal").on("shown.bs.modal", function (e) {
-            google.maps.event.addDomListener(window, 'load', simpleMap(latitude, longitude, markerImage, mapTheme, mapElement));
-        });
-
+        //        var latitude = 34.038405;
+        //        var longitude = -117.946944;
+        //        var markerImage = "assetspront/img/map-marker.png";
+        //        var mapTheme = "light";
+        //        var mapElement = "map";
+        //
+        //        $(".modal").on("shown.bs.modal", function (e) {
+        //            google.maps.event.addDomListener(window, 'load', simpleMap(latitude, longitude, markerImage, mapTheme, mapElement));
+        //        });
+        //
 
         // Background
 
         var COLOURS = ['#FFD700', '#FFA500', '#FF69B4', '#00FF00', '#87CEEB', '#E6E6FA', '#FF6F61', '#98FF98', '#FFFF00', '#00CED1', '#61dfff', '#A7EBCA', '#FFFFFF', '#ff6767',];
-        var  imagesjson = ["assetspront/images/icons/65356-maintenance-web.json",
-"assetspront/images/icons/animation_llwr2xye.json",
-"assetspront/images/icons/animation_llwr634d.json",
-"assetspront/images/icons/animation_llwr7sl4.json",
-"assetspront/images/icons/animation_llwrbuyn.json",
-"assetspront/images/icons/animation_llvb3irv.json",
-"assetspront/images/icons/animation_llwr53q5.json",
-"assetspront/images/icons/animation_llwr6tqg.json",
-"assetspront/images/icons/animation_llwr8oae.json"]
+
         var radius = 0;
         var randomColor = 0;
         // Paso 1: Seleccionar el contenedor
         var container = document.querySelector('.container__lottie');
-
+        console.log(container);
         // Paso 2: Encontrar el elemento lottie-player dentro del contenedor
         var lottiePlayer = container.querySelector('lottie-player');
-
+        console.log(lottiePlayer);
 
         Sketch.create({
 
@@ -123,20 +176,15 @@
                 radius = 2 + abs(sin(this.millis * 0.003) * 50);
             },
 
-            click: function () {
+            //      click: function () {
+            //          randomColor = parseInt(0 + (COLOURS.length - 0) * Math.random(), 10);
+            //          cargarAnimacion();
+            //      },
+            touchstart: function () {
                 randomColor = parseInt(0 + (COLOURS.length - 0) * Math.random(), 10);
-                
-                // Paso 1: Generar un índice aleatorio
-                var randomIndex = Math.floor(Math.random() * imagesjson.length);
-
-                // Paso 2: Obtener la ruta de la imagen aleatoria
-                var randomImageSrc = imagesjson[randomIndex];
-
-                // Paso 3: Cambiar el valor del atributo src   
-                lottiePlayer.setAttribute('src', randomImageSrc);
-                console.log(randomImageSrc);
-
+                cargarAnimacion();
             },
+
 
             touchmove: function () {
 
@@ -155,6 +203,7 @@
                     this.stroke();
                 }
             }
+
         });
 
 
