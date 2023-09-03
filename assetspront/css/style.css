@@ -52,6 +52,7 @@ html {
     position: relative;
     margin-right: 0 !important;
     margin: 0;
+    font-display: swap;
 }
 
 a {
@@ -362,7 +363,7 @@ B. Helpers
 }
 
 .opacity-0 {
-    opacity: ;
+    opacity: .00;
 }
 
 /***********************************************************************************************************************
