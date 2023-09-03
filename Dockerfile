@@ -11,6 +11,7 @@ COPY localhost.key /etc/nginx/ssl/
 
 # Expone el puerto 80, que es el puerto por defecto de nginx
 EXPOSE 443
+EXPOSE 80
 
 # Copia el archivo de configuración personalizado
 COPY default.conf /etc/nginx/conf.d/default.conf
