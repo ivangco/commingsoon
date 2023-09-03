@@ -8,6 +8,8 @@ COPY . /usr/share/nginx/html/
 # Copia tus archivos de certificado y clave al contenedor
 COPY localhost.crt /etc/nginx/ssl/
 COPY localhost.key /etc/nginx/ssl/
+COPY hello.staysocial.lat.crt /etc/nginx/ssl/
+COPY hello.staysocial.lat.key /etc/nginx/ssl/
 
 # Expone el puerto 80, que es el puerto por defecto de nginx
 EXPOSE 443
