@@ -5,13 +5,14 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="ThemeStarz">
-
+    <meta name="author" content="Ivan Cespedes">
+    <meta name="description" content="Una pagina de pruebas">
     <link href="assetspront/fonts/font-awesome.css" rel="stylesheet" type="text/css">
     <link href="assetspront/fonts/elegant-fonts.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="assetspront/bootstrap/css/bootstrap.css" type="text/css">
     <link rel="stylesheet" href="assetspront/css/magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="assetspront/css/style.css" type="text/css">
+    <link rel="manifest" href="/manifest.json">
 
     <title>hola</title>
 
@@ -60,7 +61,7 @@
     <script src="assetspront/js/lottie.min.js"></script>
     <script>
 
-        function cargarAnimacion() {
+        async function cargarAnimacion() {
             var animationContainer = document.getElementById('lottie-animation');
             var imagesjson = [
                 "assetspront/images/icons/animation_llwrbuyn.json",
@@ -107,7 +108,9 @@
                 path: randomImageSrc // Reemplaza con la ruta de tu archivo JSON de animación
             });
         }
-        cargarAnimacion();
+        setTimeout(() => {
+            cargarAnimacion()
+        }, 0); // Simulando una tarea que toma 1 segundo
 
         var COLOURS = ['#FFD700', '#FFA500', '#FF69B4', '#00FF00', '#87CEEB', '#E6E6FA', '#FF6F61', '#98FF98', '#FFFF00', '#00CED1', '#61dfff', '#A7EBCA', '#FFFFFF', '#ff6767',];
 
@@ -125,17 +128,17 @@
             autoclear: false,
             retina: 'auto',
 
-            update: function () {
+            update: async function () {
                 radius = 6 + abs(sin(this.millis * 0.003) * 50);
             },
 
-            touchstart: function () {
+            touchstart: async function () {
                 randomColor = parseInt(0 + (COLOURS.length - 0) * Math.random(), 10);
                 cargarAnimacion();
             },
 
 
-            touchmove: function () {
+            touchmove: async function () {
 
                 for (var i = this.touches.length - 1, touch; i >= 0; i--) {
 
@@ -154,8 +157,6 @@
             }
 
         });
-
-
     </script>
 
 </body>
