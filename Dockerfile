@@ -12,7 +12,7 @@ COPY hello.staysocial.lat.crt /etc/nginx/ssl/
 COPY hello.staysocial.lat.key /etc/nginx/ssl/
 
 # Expone el puerto 80, que es el puerto por defecto de nginx
-EXPOSE 443
+# EXPOSE 443
 EXPOSE 80
 
 # Copia el archivo de configuración personalizado
